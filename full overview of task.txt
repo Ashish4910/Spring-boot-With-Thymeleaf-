@@ -1,0 +1,6 @@
+step 1: create maven
+step 2: select catalog ==> Maven Central 
+Step 3 : select ==> maven-archetype-sim ==> 1.4
+
+
+====> success your maven project is created 

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Employee Edit</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+          crossorigin="anonymous">
+    <style>
+        .error {
+            color: red;
+        }
+         .readonly-input {
+            color: grey;
+            background-color: #f2f2f2;
+        } 
+    </style>
+</head>
+<body>
+<nav class="navbar bg-info" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Employee Edit Page</a>
+    </div>
+</nav>
+<div class="container p-4">
+    <div class="row justify-content-center">
+        <div class="card shadow" style="width: 25rem;">
+            <div class="card-body p-5">
+                <label class="form-text mb-4 text-center fs-2">Employee Edit</label>
+                <form th:action="@{/editEmployeePost}" th:method="Post" th:object="${employees}">
+                    <input type="text" th:field="*{name}" placeholder="Enter Name" class="form-control"/>
+                    
+                    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></span><br>
+                    
+                    <input type="email" th:field="*{email}" placeholder="Enter Email"
+                           class="form-control readonly-input" readonly/>
+                           
+                    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></span><br>
+                    
+                    <input type="text" th:field="*{password}" placeholder="Password" class="form-control"/>
+                    
+                    <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error"></span><br>
+                    
+                    <input type="text" th:field="*{gender}" placeholder="Enter Gender" class="form-control"/>
+                    
+                    <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}" class="error"></span><br>
+                    
+                    <input type="text" th:field="*{mobile}" placeholder="Enter Mobile" class="form-control"/>
+                    
+                    <span th:if="${#fields.hasErrors('mobile')}" th:errors="*{mobile}" class="error"></span><br>
+                    
+                    <input type="file"  th:field="*{imageData}"  class="form-control mb-2"  >
+                   														
+                    <button type="submit" value="submit" class="form-control btn btn-primary">Update</button>
+                    
+                </form>
+                <div class="text-center mt-4">
+                    <a th:href="@{/EmployeeList(email=${employees.email},password=${employees.password})}"
+                       class="mt-4 text-center">Back to List Page</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+</html>

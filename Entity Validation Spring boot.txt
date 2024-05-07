@@ -1,0 +1,103 @@
+ValidationDEMO ==> For Entity===>
+
+1.validation dependencies is needed for validation
+
+
+
+@vaild ==> Process the validation
+BindingResult ==> return the error if it contain in @valid 
+
+1. create the entity
+2. create the getter / setter 
+3. validate with annotation 
+
+@NotNull(message="is required")
+@Size(min =1, message="is required")
+private String lastName="";
+
+
+==> create a controller 
+1. create the Getmapping 
+2. use the model to share the data 
+3. send the new Customer() with name 
+4. return to the form
+
+==> create html form in template
+
+1. create customer-form 
+2. use the thymeleaf dependencies
+3. make the form 
+
+<form th:action =@{/ processForm}" th:object="customer" method="post">
+
+First Name : <input type="text" th:field="*{firstName}" />
+LastName : <input type="text" th:field="*{lastName}" />
+
+
+<span th:if="${#fields.hasError('lastName')}"
+th:errors="*{lastName}"
+class="error"></span>
+
+<input type="submit" value="submit" />
+
+</form>
+
+5. define the error in red use css ==> .error{ color:red}
+
+
+ lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+@initBinder==>
+ 1. it will pre-process
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
